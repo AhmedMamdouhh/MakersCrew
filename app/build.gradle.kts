@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    kotlin(Plugins.KOTLIN_KAPT)
+    id(Plugins.HILT_LIBRARY)
+
 }
 
 android {
@@ -50,20 +53,27 @@ android {
 }
 
 dependencies {
+    Dependencies.uiDependencies.forEach { implementation(it) }
+    Dependencies.composeDependency.forEach { implementation(it) }
+    Dependencies.junitDependency.forEach { testImplementation(it) }
+    Dependencies.androidTestDependencies.forEach { androidTestImplementation(it) }
+    implementation(libs.androidx.activity)
+    implementation(platform(Dependencies.composePlatformBom))
+    androidTestImplementation(platform(Dependencies.composePlatformBomAndroidTest))
+    //retrofit
+    Dependencies.retrofitDependencies.forEach { implementation(it) }
+    //Coroutine
+    implementation(Dependencies.coroutinesDependency)
+    //Navigation
+    Dependencies.navigationDependencies.forEach { implementation(it) }
+    //Hilt
+    kapt(Dependencies.hiltCompiler)
+    kapt (libs.hilt.android.compiler)
+    implementation(Dependencies.hiltDependency)
+    //retrofit
+    Dependencies.retrofitDependencies.forEach { implementation(it) }
+    //Room
+    Dependencies.roomDependencies.forEach { implementation(it) }
+    kapt(Dependencies.roomCompiler)
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
 }
