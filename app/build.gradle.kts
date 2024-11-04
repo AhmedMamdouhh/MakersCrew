@@ -1,8 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    kotlin(Plugins.KOTLIN_KAPT)
     id(Plugins.HILT_LIBRARY)
+    kotlin(Plugins.KOTLIN_KAPT)
 
 }
 
