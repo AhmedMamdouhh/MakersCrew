@@ -2,4 +2,6 @@
 plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.jetbrains.kotlin.android) apply false
+    id(Plugins.HILT_LIBRARY) version PluginsVersions.HILT_LIBRARY apply false
+
 }
