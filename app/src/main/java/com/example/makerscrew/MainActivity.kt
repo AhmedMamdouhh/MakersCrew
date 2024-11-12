@@ -1,5 +1,6 @@
 package com.example.makerscrew
 
+import SplashScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -25,7 +26,9 @@ class MainActivity : ComponentActivity() {
                             .padding(innerPadding),
                         color = MaterialTheme.colorScheme.background,
                     ) {
+                        SplashScreen(Modifier.padding(innerPadding)){
 
+                        }
                     }
                 }
             }
